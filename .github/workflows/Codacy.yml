@@ -2,10 +2,10 @@ name: Codacy Security Scan
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "feature" ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "dev" ]
+    branches: [ "feature" ]
 
 
 permissions:
@@ -21,4 +21,4 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: clover.xml
+          #coverage-reports: clover.xml
