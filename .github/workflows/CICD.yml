@@ -82,7 +82,7 @@ jobs:
           
 
   Buildartifacts:
-     needs: [CodeQLanalysis,Sonarcloud]
+     needs: [CodeQLanalysis]
      runs-on: 'ubuntu-latest'     
      steps:
       - name: Checkout repository
