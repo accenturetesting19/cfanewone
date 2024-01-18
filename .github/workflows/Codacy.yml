@@ -53,4 +53,4 @@ jobs:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             # or
             # api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: ./coverage/lcov-report/*html
+          coverage-reports: ./coverage/lcov-report/index.html
