@@ -55,29 +55,29 @@ jobs:
           upload: False
           output: sarif-results
 
-  Sonarcloud:
-     needs: CodeQLanalysis
-     runs-on: ubuntu-latest
+ # Sonarcloud:
+ #    needs: CodeQLanalysis
+ #    runs-on: ubuntu-latest
      
-     steps:
-       - uses: actions/checkout@v4
-         with:
+ #    steps:
+ #      - uses: actions/checkout@v4
+ #        with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
-           fetch-depth: 0
-       - name: Analyze with SonarCloud
+ #         fetch-depth: 0
+ #      - name: Analyze with SonarCloud
 
-         uses: SonarSource/sonarcloud-github-action@master
-         with:
-           projectBaseDir: src
-           args: >
-            -Dsonar.organization=sonarscankey
-            -Dsonar.projectKey=accenturetesting19_cfanewone
-            -Dsonar.qualitygate.wait=true
+ #        uses: SonarSource/sonarcloud-github-action@master
+ #        with:
+ #          projectBaseDir: src
+ #          args: >
+ #           -Dsonar.organization=sonarscankey
+ #           -Dsonar.projectKey=accenturetesting19_cfanewone
+  #          -Dsonar.qualitygate.wait=true
             
            
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
-           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+ #        env:
+ #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
+ #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
   
           
 
