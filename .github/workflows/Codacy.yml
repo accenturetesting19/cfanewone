@@ -32,7 +32,7 @@ jobs:
           # You can also omit the token and run the tools that support default configurations
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           verbose: true
-          coverage-reports: /coverage/lcov_report
+          #coverage-reports: /coverage/lcov_report
           output: results.sarif
           format: sarif
           # Adjust severity of non-security issues
@@ -46,3 +46,11 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: results.sarif
+      
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+            # or
+            # api-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: /coverage/lcov_report
