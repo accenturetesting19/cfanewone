@@ -9,6 +9,7 @@
     "prepublishOnly": "webpack --mode=production",
     "prepublishOnly:pack": "yarn prepublishOnly && rm -rf ~/.npm/_npx && yarn pack",
     "test": "jest --coverage",
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage --accountToken WCc9C46PDaxntwn8WnGx --username accenturetesting19 --projectName cfanewone",
     "test:watch": "jest --watch",
     "lint": "eslint \"**/*.{ts,tsx,js,jsx,html,yml}\"",
     "lint:fix": "eslint --fix \"**/*.{ts,tsx,js,jsx,html,yml}\"",
