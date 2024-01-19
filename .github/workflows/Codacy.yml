@@ -15,11 +15,36 @@ permissions:
 jobs:
    codacy-coverage-reporter:
     runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@d840f886c4bd4edc059706d09c6a1586111c540b
+        with:
+          # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
+          # You can also omit the token and run the tools that support default configurations
+          project-token: $CODACY_PROJECT_TOKEN
+          verbose: true
+          coverage-reports: /coverage/lcov-report/lcov.info
+          output: results.sarif
+          format: sarif
+          # Adjust severity of non-security issues
+          gh-code-scanning-compat: true
+          # Force 0 exit code to allow SARIF file generation
+          # This will handover control about PR rejection to the GitHub side
+          max-allowed-issues: 2147483647
+
+      # Upload the SARIF file generated in the previous step
+      - name: Upload SARIF results file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
+          
+   # name: codacy-coverage-reporter
+    #steps:
     #  - name: Install Codacy
      #   run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
-      - uses: actions/checkout@master
+     # - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
