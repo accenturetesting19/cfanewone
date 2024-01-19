@@ -46,12 +46,13 @@ jobs:
           
    # name: codacy-coverage-reporter
     #steps:
-      - name: Install Codacy
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/clover.xml
-     # - uses: actions/checkout@master
+      
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           api-token: ${{env.CODACY_API_TOKEN}}
         #  coverage-reports: /coverage/clover.xml
          # force-coverage-parser: clover.xml
+      - name: Install Codacy
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/clover.xml
+     
