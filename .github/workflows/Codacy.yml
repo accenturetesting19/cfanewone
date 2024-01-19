@@ -18,10 +18,10 @@ jobs:
     name: codacy-coverage-reporter
     steps:
       - name: Install Codacy
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) -r lcov.info
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: $CODACY_PROJECT_TOKEN
-          #coverage-reports: clover.xml
+          coverage-reports: ./coverage/clover.xml
