@@ -3,11 +3,13 @@ on:
   push:
     branches:
       - master
+      - dev
       
   pull_request:
     branches:
       - main
       - master
+      - dev
       
 
 jobs:
@@ -104,6 +106,10 @@ jobs:
         run: npm run build
       - name: Unittesting and coverage
         run: npm run test
+      - name: coverage report
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+         lcov-file: ./coverage/lcov.info
      
         
        
