@@ -23,6 +23,6 @@ jobs:
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          project-token: $env.CODACY_PROJECT_TOKEN
+          project-token: $CODACY_PROJECT_TOKEN
           coverage-reports: ./coverage/clover.xml
           force-coverage-parser: clover.xml
