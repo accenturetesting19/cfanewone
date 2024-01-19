@@ -17,7 +17,7 @@ jobs:
     name: codacy-coverage-reporter
     steps:
       - name: Install Codacy
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) --project-token ${{ env.CODACY_PROJECT_TOKEN }} -r lcov.info
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
