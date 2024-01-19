@@ -16,9 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     name: codacy-coverage-reporter
     steps:
+      - name: Install Codacy
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) --project-token ${{ env.CODACY_PROJECT_TOKEN }} -r lcov.info
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          project-token: ${{ secrets.CODACY_API_TOKEN }}
+          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
           #coverage-reports: clover.xml
