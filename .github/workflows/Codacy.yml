@@ -7,7 +7,8 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "feature" ]
 
-
+env:
+  CODACY_PROJECT_TOKEN: 7f708ce15c3047f49724449b66ce642e
 permissions:
   contents: read
 
@@ -22,5 +23,5 @@ jobs:
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
+          project-token: $CODACY_PROJECT_TOKEN
           #coverage-reports: clover.xml
