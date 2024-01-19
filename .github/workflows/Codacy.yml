@@ -31,7 +31,7 @@ jobs:
           # You can also omit the token and run the tools that support default configurations
           project-token: $CODACY_PROJECT_TOKEN
           verbose: true
-          coverage-reports: /coverage/lcov-report/lcov.info
+          coverage-reports: /coverage/lcov.info
           output: results.sarif
           format: sarif
           # Adjust severity of non-security issues
@@ -55,5 +55,5 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: $CODACY_PROJECT_TOKEN
-          coverage-reports: ./coverage/lcov.info
+          coverage-reports: /coverage/clover.xml
          # force-coverage-parser: clover.xml
