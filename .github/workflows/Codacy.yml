@@ -25,3 +25,4 @@ jobs:
         with:
           project-token: $CODACY_PROJECT_TOKEN
           coverage-reports: ./coverage/clover.xml
+          force-coverage-parser: clover.xml
