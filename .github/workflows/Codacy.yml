@@ -7,8 +7,6 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "feature" ]
 
-env:
-  CODACY_PROJECT_TOKEN: 7f708ce15c3047f49724449b66ce642e
 permissions:
   contents: read
 
@@ -29,9 +27,9 @@ jobs:
         with:
           # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
           # You can also omit the token and run the tools that support default configurations
-          project-token: $CODACY_PROJECT_TOKEN
+          api-token: ${{env.CODACY_API_TOKEN}}
           verbose: true
-          coverage-reports: /coverage/lcov.info
+          coverage-reports: /coverage/clover.xml
           output: results.sarif
           format: sarif
           # Adjust severity of non-security issues
@@ -54,6 +52,6 @@ jobs:
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          project-token: $CODACY_PROJECT_TOKEN
+          api-token: ${{env.CODACY_API_TOKEN}}
         #  coverage-reports: /coverage/clover.xml
          # force-coverage-parser: clover.xml
