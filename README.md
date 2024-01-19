@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f708ce15c3047f49724449b66ce642e)](https://app.codacy.com/gh/accenturetesting19/cfanewone?utm_source=github.com&utm_medium=referral&utm_content=accenturetesting19/cfanewone&utm_campaign=Badge_Grade)
+
 When developing a Node.js command-line interface (CLI) tool, having a well-organized folder structure can contribute to the maintainability and clarity of your project. Below is a suggested folder structure for a Node.js CLI tool:
 
 ```
