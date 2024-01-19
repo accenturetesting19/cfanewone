@@ -7,6 +7,12 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "feature" ]
 
+env:
+  CODACY_API_TOKEN: WCc9C46PDaxntwn8WnGx
+  CODACY_ORGANIZATION_PROVIDER: gh
+  CODACY_USERNAME: accenturetesting19
+  CODACY_PROJECT_NAME: cfanewone
+  
 permissions:
   contents: read
 
@@ -50,7 +56,7 @@ jobs:
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          api-token: ${{env.CODACY_API_TOKEN}}
+          api-token: $CODACY_API_TOKEN
         #  coverage-reports: /coverage/clover.xml
          # force-coverage-parser: clover.xml
       - name: Install Codacy
